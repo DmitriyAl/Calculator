@@ -1,0 +1,21 @@
+button.dummybuttons{
+    height: 25px;
+    width: 50px;
+    background-color: red;
+}
+
+button.functionalbuttons{
+    height: 25px;
+    width: 50px;
+    background-color: orange;
+}
+
+button.numbers{
+    height: 25px;
+    width: 50px;
+    background-color: lavender;
+}
+
+h1{
+    color: aqua;
+}
