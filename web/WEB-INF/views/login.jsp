@@ -9,6 +9,14 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        body {
+            background: url("images/background.jpg")
+        }
+        h1{
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <center>
@@ -16,7 +24,7 @@
         <h1>${title}</h1>
     </header>
     <form>
-        <button formaction="/calc" >Go to login</button>
+        <button formaction="/calc">Go to login</button>
     </form>
 </center>
 </body>
