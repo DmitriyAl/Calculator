@@ -12,6 +12,7 @@
 <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/app.js" language="LiveScript"/>
 </head>
 <body>
 <center>
