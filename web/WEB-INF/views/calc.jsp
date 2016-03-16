@@ -12,7 +12,53 @@
 <head>
     <title>Calculator</title>
     <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/app.js" language="LiveScript"/>
+    <%--<script src="js/app.js" language="LiveScript" type="text/javascript"/>--%>
+    <script>
+        function addChar(input, character) {
+            if (input.value == null || input.value == "0")
+                input.value = character
+            else
+                input.value += character
+        }
+
+        function sqrt(form) {
+            form.display.value = Math.sqrt(form.display.value);
+        }
+
+        function ln(form) {
+            form.display.value = Math.log(form.display.value);
+        }
+
+        function log(form) {
+            form.display.value = (Math.log(form.display.value))/(Math.log(10))
+        }
+
+        function sqrt(form) {
+            form.display.value = Math.sqrt(form.display.value);
+        }
+
+        function compute(form) {
+            form.display.value = eval(form.display.value);
+        }
+
+        function square(form) {
+            form.display.value = eval(form.display.value) * eval(form.display.value);
+        }
+
+        function checkNum(str) {
+            for (var i = 0; i < str.length; i++) {
+                var ch = str.substring(i, i + 1)
+                if (ch < "0" || ch > "9") {
+                    if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+                            && ch != "(" && ch != ")") {
+                        alert("invalid entry!")
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+    </script>
 </head>
 <body>
 <center>
@@ -20,19 +66,14 @@
         <%--<input type="text" name="expression"/>--%>
         <%--<input type="submit" name="submit" value="calculate"/>--%>
         <table>
-            <div id="fullexpression">
-                <tr align="right" valign="top">
-                    0
-                </tr>
-            </div>
             <div id="currentnumber">
-                <tr align="right" valign="top">
-                    0
+                <tr>
+                    <input name="display" class="answer" value="0" size=25>
                 </tr>
             </div>
             <tr>
                 <td>
-                    <button class="dummybuttons" name="x!" value="x!">x!</button>
+                    <input type="button" class="dummybuttons" name="x!" value="x!">
                 </td>
                 <td>
                     <button class="dummybuttons" name="(" value="(">(</button>
@@ -44,58 +85,65 @@
                     <button class="dummybuttons" name="%" value="%">%</button>
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="AC" value="AC">AC</button>
+                    <input type="button" class="functionalbuttons" name="AC" value="AC"
+                           onClick="this.form.display.value = 0 ">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button class="dummybuttons" name="ln" value="ln">ln</button>
+                    <input type="button" class="functionalbuttons" name="ln" value="ln"
+                           onclick="if (checkNum(this.form.display.value)){ ln(this.form) }">
                 </td>
                 <td>
-                    <button class="numbers" name="7" value="7">7</button>
+                    <input type="button" class="numbers" name="7" value="7" onclick="addChar(this.form.display, '7')">
                 </td>
                 <td>
-                    <button class="numbers" name="8" value="8">8</button>
+                    <input type="button" class="numbers" name="8" value="8" onclick="addChar(this.form.display, '8')">
                 </td>
                 <td>
-                    <button class="numbers" name="9" value="9">9</button>
+                    <input type="button" class="numbers" name="9" value="9" onclick="addChar(this.form.display, '9')">
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="/" value="/">/</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="dummybuttons" name="log" value="log">log</button>
-                </td>
-                <td>
-                    <button class="numbers" name="4" value="4">4</button>
-                </td>
-                <td>
-                    <button class="numbers" name="5" value="5">5</button>
-                </td>
-                <td>
-                    <button class="numbers" name="6" value="6">6</button>
-                </td>
-                <td>
-                    <button class="functionalbuttons" name="*" value="*">*</button>
+                    <input type="button" value="/" name="/" class="functionalbuttons"
+                           onClick="addChar(this.form.display, '/')">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button class="functionalbuttons" name="sqrt" value="sqrt">sqrt</button>
+                    <input type="button" class="functionalbuttons" name="log" value="log"
+                           onclick="if (checkNum(this.form.display.value)){ log(this.form) }">
                 </td>
                 <td>
-                    <button class="numbers" name="1" value="1">1</button>
+                    <input type="button" class="numbers" name="4" value="4" onclick="addChar(this.form.display, '4')">
                 </td>
                 <td>
-                    <button class="numbers" name="2" value="2">2</button>
+                    <input type="button" class="numbers" name="5" value="5" onclick="addChar(this.form.display, '5')">
                 </td>
                 <td>
-                    <button class="numbers" name="3" value="3">3</button>
+                    <input type="button" class="numbers" name="6" value="6" onclick="addChar(this.form.display, '6')">
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="-" value="-">-</button>
+                    <input type="button" value="*" name="*" class="functionalbuttons"
+                           onClick="addChar(this.form.display, '*')">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="sqrt" name="sqrt" class="functionalbuttons"
+                           onClick="if (checkNum(this.form.display.value)){ sqrt(this.form) }">
+                </td>
+                <td>
+                    <input type="button" class="numbers" name="1" value="1" onclick="addChar(this.form.display, '1')">
+                </td>
+                <td>
+                    <input type="button" class="numbers" name="2" value="2" onclick="addChar(this.form.display, '2')">
+                </td>
+                <td>
+                    <input type="button" class="numbers" name="3" value="3" onclick="addChar(this.form.display, '3')">
+                </td>
+                <td>
+                    <input type="button" value="-" name="-" class="functionalbuttons"
+                           onClick="addChar(this.form.display, '-')">
                 </td>
             </tr>
             <tr>
@@ -103,16 +151,19 @@
                     <button class="dummybuttons" name="x^y" value="x^y">x^y</button>
                 </td>
                 <td>
-                    <button class="numbers" name="0" value="0">0</button>
+                    <input type="button" class="numbers" name="0" value="0" onclick="addChar(this.form.display, '0')">
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="." value=".">.</button>
+                    <input type="button" value="." name="." class="functionalbuttons"
+                           onClick="addChar(this.form.display, '.')">
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="=" value="=">=</button>
+                    <input type="button" value="=" name="=" class="functionalbuttons"
+                           onClick="if (checkNum(this.form.display.value)) { compute(this.form) }">
                 </td>
                 <td>
-                    <button class="functionalbuttons" name="+" value="+">+</button>
+                    <input type="button" value="+" name="+" class="functionalbuttons"
+                           onClick="addChar(this.form.display, '+')">
                 </td>
             </tr>
         </table>

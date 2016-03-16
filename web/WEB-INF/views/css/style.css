@@ -1,3 +1,7 @@
+body{
+    background-color: #cacaca;
+}
+
 button.dummybuttons{
     height: 25px;
     width: 50px;
@@ -14,6 +18,30 @@ button.numbers{
     height: 25px;
     width: 50px;
     background-color: lavender;
+}
+
+input.numbers{
+    height: 25px;
+    width: 50px;
+    background-color: lavender;
+}
+
+input.dummybuttons{
+    height: 25px;
+    width: 50px;
+    background-color: red;
+}
+
+input.functionalbuttons{
+    height: 25px;
+    width: 50px;
+    background-color: orange;
+}
+
+input.answer{
+    width: 350px;
+    font-size: 20px;
+    font-family: "Comic Sans MS";
 }
 
 h1{
