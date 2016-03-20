@@ -20,11 +20,9 @@
         <%--<input type="text" name="expression"/>--%>
         <%--<input type="submit" name="submit" value="calculate"/>--%>
         <table>
-            <div id="currentnumber">
-                <tr>
-                    <input name="display" class="answer" value="0" size=25>
-                </tr>
-            </div>
+            <tr>
+                <input name="display" class="answer" value="0" size=25>
+            </tr>
             <tr>
                 <td>
                     <input type="button" class="dummybuttons" name="x!" value="x!">
